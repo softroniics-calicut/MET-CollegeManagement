@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+{% load static %}
+<head>
+
+	<title>Library Member Login Form A Flat Responsive Widget Template :: W3layouts</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Library Member Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+
+	<!-- Fonts -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+	<h1>E LIBRARY REGISTRATION FORM</h1>
+
+	<div class="container w3layouts agileits">
+
+			<h2>REGISTER</h2>
+			<form action="register" method="post">
+				{% csrf_token %}
+				<input type="text" name="Name" placeholder="Name" required="">
+				<input type="text" name="Email" placeholder="Email" required="">
+				<input type="text" name="Phone Number" placeholder="Phone Number" required="">
+				<input type="text" name="Username" placeholder="Username" required="">
+				<input type="password" name="Password" placeholder="Password" required="">
+				<div class="send-button w3layouts agileits">
+					<input type="submit" value="Register">
+
+				</div>
+			</form>
+				<p><a style="color:white" href="login" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Already Registered?</a></p>
+				<h3 style="color:red">{{note}}</h3>
+
+			<div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+	</div>
+
+</body>
+<!-- //Body -->
+
+</html>
