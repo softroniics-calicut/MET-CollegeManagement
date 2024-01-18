@@ -46,7 +46,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index">Home
+                <a class="nav-link" href="{% url 'student_home' %}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
@@ -54,24 +54,26 @@
                 <a class="nav-link" href="#">Teachers</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="product">Books</a>
+                <a class="nav-link" href="{% url 'student_books' %}">Books</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="user">History</a>
+                <a class="nav-link" href="{% url 'student_history' %}">History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="logout">Logout</a>
+                <a class="nav-link" href="{% url 'Logout' %}">Logout</a>
               </li>
 
               <li class="nav-item">
 
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{user.username}}</a>
+                <a class="nav-link" href="{% url 'student_profile' %}"><i class="fa-solid fa-user"></i> {{user.username}}</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+    {% block content %}
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -105,15 +107,15 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Our Books</h2>
-              <a href="product">view all books<i class="fa fa-angle-right"></i></a>
+              <a href="{% url 'student_books' %}">view all books<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           {% for i in books|slice:":3" %}
           <div class="col-md-4">
             <div class="product-item">
-              <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+              <a href="view_book/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
               <div class="down-content">
-                <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                <a href="view_book/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
                 <h4>Genre: {{i.genre}}</h4>
               </div>
             </div>
@@ -152,7 +154,7 @@
       </div>
     </div>
 
-
+{% endblock %}
 
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'js/jquery.min.js' %}"></script>

@@ -213,7 +213,7 @@ li.twt {
     transition: .5s all;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="file"] {
     width: 93.4%;
     margin-bottom: 20px;
     padding: 10px;

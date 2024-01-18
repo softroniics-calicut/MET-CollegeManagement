@@ -7,6 +7,8 @@ from django.utils import timezone
 class Department(models.Model):
     department_name = models.CharField(max_length=200)
     details = models.CharField(max_length=255)
+    def __str__(self):
+        return self.department_name
 
 
 class CustomUser(AbstractUser):
@@ -16,6 +18,7 @@ class CustomUser(AbstractUser):
         ('Librarian','Librarian'),
     )
     phone_number = models.IntegerField(null=True, blank=True)
+    address = models.CharField(max_length=200, null=True, blank=True)
     user_type = models.CharField(choices=usertype_choices, max_length=100,null=True, blank=True)
     department_id = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
     pic=models.FileField(upload_to='userprofile')
@@ -31,7 +34,6 @@ class Book(models.Model):
 
      def __str__(self):
          return self.bookname
-
 
 
 class Booking(models.Model):

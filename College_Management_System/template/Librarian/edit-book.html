@@ -1,0 +1,76 @@
+{% extends 'Librarian/user.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Book</h4>
+                    </div>
+                    <div class="content">
+                        <form action="{% url 'edit_book' id=book.id %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Book Name</label>
+                                        <input type="text" name="book_name" class="form-control" value="{{ book.bookname}}" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Author</label>
+                                        <input type="text" name="author" class="form-control" value="{{ book.author}}" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" name="description" class="form-control" value="{{ book.description}}" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Genre</label>
+                                        <select name="genre" class="form-control">
+                                            <option value="action" {% if book.genre == "action" %}selected{% endif %}>Action</option>
+                                            <option value="adventure" {% if book.genre == "adventure" %}selected{% endif %}>Adventure</option>
+                                            <option value="comedy" {% if book.genre == "comedy" %}selected{% endif %}>Comedy</option>
+                                            <option value="horror" {% if book.genre == "horror" %}selected{% endif %}>Horror</option>
+                                            <option value="fiction" {% if book.genre == "fiction" %}selected{% endif %}>Fiction</option>
+                                            <option value="animation" {% if book.genre == "animation" %}selected{% endif %}>Animation</option>
+                                            <option value="romance" {% if book.genre == "romance" %}selected{% endif %}>Romance</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control" value="{{ book.image}}"  accept="image/*">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Edit Book</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

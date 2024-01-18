@@ -35,18 +35,17 @@
 	<div class="container w3layouts agileits" style="margin-top: 150px;">
 
 			<h2>LOGIN</h2>
-			<form action="login" method="post">
+			<form action="{% url 'Login' %}" method="post">
 				{% csrf_token %}
-				<input type="text" Name="Username" placeholder="Username" required="">
-				<input type="password" Name="Password" placeholder="Password" required="">
+				<input type="text" Name="username" placeholder="Username" required="">
+				<input type="password" Name="password" placeholder="Password" required="">
 				<div class="send-button w3layouts agileits">
 					<input type="submit" value="Login">
 				</div>
-				<p style="color: white;">Are you a student? <a style="color:white" href="backtoregister" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">register</a></p>
-				<h3 style="color:red">{{msg}}</h3>
-				<h3 style="color:red">{{msg1}}</h3>
-
-
+				<p style="color: white;">Are you a student? <a style="color:white" href="{% url 'register' %}" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">register</a></p>
+				{% if message %}
+				<h3 style="color:red">{{message}}</h3>
+				{% endif %}
 			</form>
 
 			<div class="clear"></div>

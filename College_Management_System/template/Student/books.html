@@ -1,0 +1,84 @@
+{% extends 'Student/index.html' %}
+{% block content %}
+
+    <style>
+      .search{
+      margin: 50px auto;
+      }
+      .search input[type=text]{
+    width:300px;
+    height:25px;
+    border-radius:25px;
+    border: none;
+
+      }
+      .search button{
+    background-color: #0074D9;
+    color: #f2f2f2;
+    float: right;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius:12px;
+}
+  </style>
+    <!-- Page Content -->
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>most popular</h4>
+              <h2>books for you</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters">
+              <ul>
+                  <li class="active" data-filter="*">All Books</li>
+                  <li data-filter=".Hor,.hor">Horror</li>
+                  <li data-filter=".Fic,.fic">Fiction</li>
+                  <li data-filter=".Rom,.rom">Romance</li>
+                  <li data-filter=".Ani,.ani">Animation</li>
+                  <li data-filter=".act,.Act">Action</li>
+                  <li data-filter=".Adv,.adv">Adventure</li>
+                  <li data-filter=".Com,.com">Comedy</li>
+              </ul>
+            </div>
+          </div>
+<div class="col-md-12">
+<div class="filters-content">
+    <div class="row grid">
+
+            {% for i in books %}
+                <div class="col-lg-4 col-md-4 all {{i.genre|slice:'0:3'}}">
+                <div class="product-item">
+                <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+                <div class="down-content">
+                <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                <h4>Genre: {{i.genre}}</h4>
+                </div>
+                </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
+   

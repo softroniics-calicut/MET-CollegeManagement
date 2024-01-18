@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'Student/index.html' %}
+{% block content %}
 {% load static %}
-  <head>
+    <link rel="stylesheet" href="{% static 'css/table1.css' %}">
     <style>
 
       table {
@@ -25,88 +25,8 @@ td:hover {background-color: #cccccc;}
 
     </style>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>E Library-About Page</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'css/table1.css' %}">
-  </head>
-
-  <body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-    <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand"><h2>E <em>Library</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product">Books</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="user">History</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="about">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact">Contact Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="changepassword">Change Password</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="logout">Logout</a>
-              </li>
-                 <li class="nav-item">
-
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{data.username}}</a>
-
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
     <div class="page-heading about-heading1 header-text">
       <div class="container">
         <div class="row">
@@ -147,33 +67,4 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
    </div>
 
-
-<!--       Bootstrap core JavaScript -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="{% static 'js/custom.js' %}"></script>
-    <script src="{% static 'js/owl.js' %}"></script>
-    <script src="{% static 'js/slick.js' %}"></script>
-    <script src="{% static 'js/isotope.js' %}"></script>
-    <script src="{% static 'js/accordions.js' %}"></script>
-    <script src="{% static 'js/user_history.js' %}"></script>
-
-
-    <script language = "text/Javascript">
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
-
-
-  </body>
-
-</html>
+{% endblock %}

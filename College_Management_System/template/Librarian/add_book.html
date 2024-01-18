@@ -1,0 +1,76 @@
+{% extends 'Librarian/user.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Add  Book</h4>
+                    </div>
+                    <div class="content">
+                        <form action="{% url 'add_book' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Book Name</label>
+                                        <input type="text" name="book_name" class="form-control" placeholder="bookname" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Author</label>
+                                        <input type="text" name="author" class="form-control" placeholder="Author">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" name="description" class="form-control" placeholder="description" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Genre</label>
+                                        <select name="genre" class="form-control">
+                                            <option value="action">Action</option>
+                                            <option value="adventure">Adventure</option>
+                                            <option value="comedy">Comedy</option>
+                                            <option value="horror">Horror</option>
+                                            <option value="fiction">Fiction</option>
+                                            <option value="animation">Animation</option>
+                                            <option value="romance">Romance</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control"  accept="image/*">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Book</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
