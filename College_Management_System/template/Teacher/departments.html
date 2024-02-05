@@ -7,37 +7,24 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <div style="display: flex; justify-content: space-between; margin-top: 15px; margin-left: 65%;"></div>
-                                <form action="{% url 'search_student' %}" method="get">
-                                    {% csrf_token %}
-                                        <div class="input-group" style="margin-left: 65%; margin-top: 15px; display: flex;">
-                                          <input type="search" name="search" class="form-control rounded" placeholder="Search by Destination" aria-label="Search" aria-describedby="search-addon" 
-                                          quired />
-                                          <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
-                                      </div>
-                                </form>
-                                <h4 class="title">Students</h4>
+                                <h4 class="title">Deparments</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>No.</th>
+                                        <th>NO.</th>
                                     	<th>Name</th>
-                                    	<th>Email</th>
-                                    	<th>Phone number</th>
-                                    	<th>Department</th>
-                                        <th></th>
+                                    	<th>Details</th>
+                                    	<th></th>
                                     </thead>
                                     <tbody>
-                                        {% for student in students %}
+                                        {% for department in departments %}
                                         <tr>
                                             <td>{{ forloop.counter }}</td>
-                                        	<td>{{ student.username }}</td>
-                                        	<td>{{ student.email }}</td>
-                                        	<td>{{ student.phone_number }}</td>
-                                        	<td>{{ student.department_id.department_name }}</td>
+                                        	<td>{{ department.department_name }}</td>
+                                        	<td>{{ department.details }}</td>
                                             <td>
-                                                <a href="{% url 'student_records' id=student.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <a href="{% url 'view_teachers' id=department.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
                                                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
                                                   </svg>

@@ -7,7 +7,6 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>E library</h4>
               <h2>Edit Profile</h2>
             </div>
           </div>
@@ -16,16 +15,84 @@
     </div>
 
 
-  &nbsp;<form action="{% url 'student_profile' %}" method="post">
-      {% csrf_token %}
- <center>
-<i class="fa-solid fa-user"></i><input type="text" name="newname" placeholder="New name" required><br><br>
-   <i class="fa-solid fa-envelope"></i><input type="email" name="newemail" placeholder="New email" required><br><br>
-   <i class="fa-solid fa-phone"></i><input type="number" name="newphone" placeholder="New phone number" required><br><br>
- <button type="submit" class="btn btn-success">Confirm</button></center></center>
-
-
-
-  </form>
+    <div class="content" style="margin: 30px;">
+      <div class="container-fluid">
+          <div class="row text-center">
+              <div class="col-md-8 mx-auto">
+                  <div class="card">
+                      <div class="content">
+                          <form action="{% url 'edit_stdprofile' %}" method="post" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="row">
+                                  
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Username</label>
+                                          <input type="text" name="username" class="form-control" placeholder="Username" value="{{ user.username }}">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label for="exampleInputEmail1">Email address</label>
+                                          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ user.email }}">
+                                      </div>
+                                  </div>
+                              </div>
+  
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>First Name</label>
+                                          <input type="text" name="first_name" class="form-control" placeholder="Company" value="{{ user.first_name }}">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Last Name</label>
+                                          <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="{{ user.last_name }}">
+                                      </div>
+                                  </div>
+                              </div>
+  
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="form-group">
+                                          <label>Address</label>
+                                          <input type="text" name="address" class="form-control" placeholder="Home Address" value="{{ user.address }}">
+                                      </div>
+                                  </div>
+                              </div>
+  
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <label>Phone Number</label>
+                                          <input type="text" name="phone_number" class="form-control" placeholder="Phone Number" value="{{ user.phone_number }}">
+                                      </div>
+                                  </div>
+  
+                              </div>
+  
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <label>Profile Picture</label>
+                                          <input type="file" name="image" class="form-control" value="{{ user.pic }}" accept="image/*">
+                                      </div>
+                                  </div>
+  
+                              </div>
+  
+   
+  
+                              <button type="submit" class="btn btn-info btn-fill pull-center">Update Profile</button>
+                              <div class="clearfix"></div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>      
 
 {% endblock %}

@@ -21,13 +21,13 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
-      <img src="{{ books.image.url }}" alt="{{ books.bookname }}" class="img-fluid rounded">
+      <img src="{{ book.image.url }}" alt="{{ book.bookname }}" class="img-fluid rounded">
       <div class="down-content mt-3">
-        <h4>{{ books.bookname }} by {{ books.author }}</h4>
-        <p>{{ books.description }}</p>
-        <form action="{% url 'getbook' %}" method="post">
+        <h4>{{ book.bookname }} by {{ book.author }}</h4>
+        <p>{{ book.description }}</p>
+        <form action="{% url 'booking' %}" method="post">
           {% csrf_token %}
-          <input type="hidden" value="{{ books.id }}" name="bookid">
+          <input type="hidden" value="{{ book.id }}" name="bookid">
           <button type="submit" class="btn btn-success">Get Book</button>
         </form>
       </div>
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-
+{% endblock %}
 
       
 

@@ -43,11 +43,10 @@
                                         <label>Genre</label>
                                         <select name="genre" class="form-control">
                                             <option value="action" {% if book.genre == "action" %}selected{% endif %}>Action</option>
-                                            <option value="adventure" {% if book.genre == "adventure" %}selected{% endif %}>Adventure</option>
-                                            <option value="comedy" {% if book.genre == "comedy" %}selected{% endif %}>Comedy</option>
-                                            <option value="horror" {% if book.genre == "horror" %}selected{% endif %}>Horror</option>
+                                            <option value="education" {% if book.genre == "education" %}selected{% endif %}>Education</option>
+                                            <option value="autobiography" {% if book.genre == "autobiography" %}selected{% endif %}>autobiography</option>
                                             <option value="fiction" {% if book.genre == "fiction" %}selected{% endif %}>Fiction</option>
-                                            <option value="animation" {% if book.genre == "animation" %}selected{% endif %}>Animation</option>
+                                            <option value="personal_development" {% if book.genre == "personal_development" %}selected{% endif %}>personal development</option>
                                             <option value="romance" {% if book.genre == "romance" %}selected{% endif %}>Romance</option>
                                         </select>
                                     </div>

@@ -36,6 +36,14 @@
 				<input type="text" name="email" placeholder="Email" required="">
 				<input type="text" name="phone_number" placeholder="Phone Number" required="">
 				<input type="text" name="address" placeholder="Address" required="">
+				<div class="form-group">
+				<label style="color: white;">Deparment</label>
+				<select name="department" class="form-control">
+					{% for department in departments %}
+					<option value="{{ department }}">{{ department }}</option>
+					{% endfor %}
+				</select>
+				</div>
 				<input type="text" name="username" placeholder="Username" required="">
 				<input type="password" name="password" placeholder="Password" required="">
 
@@ -46,7 +54,7 @@
 
 				</div>
 			</form>
-				<p><a style="color:white" href="login" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Already Registered?</a></p>
+				<p><a style="color:white" href="Login" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Already Registered?</a></p>
 				<h3 style="color:red">{{note}}</h3>
 
 			<div class="clear"></div>

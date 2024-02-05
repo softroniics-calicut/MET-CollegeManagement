@@ -32,8 +32,8 @@ td:hover {background-color: #cccccc;}
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-
-              <h2>History</h2>
+           
+              <h2>Departments</h2>
             </div>
           </div>
         </div>
@@ -44,27 +44,15 @@ td:hover {background-color: #cccccc;}
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Book</th>
-              <th scope="col">Taken On</th>
-              <th scope="col">Due Date</th>
-              <th scope="col">returndate</th>
+              <th scope="col">Departments</th>
+              <th scope="col">details</th>
             </tr>
           </thead>
           <tbody>
-          {% for book in data %}
+          {% for department in departments %}
             <tr>
-              <td>{{book.bookname}}</td>
-              <td>{{book.issuedate}}</td>
-              <td>{{book.due_date}}</td>
-              {% if book.status == "booked" %}
-              <td>
-                <a href="{% url 'return_book' id=book.id %}"><button type="submit" class="btn btn-success">Return</button></a>
-              </td>
-              {% else %}
-              <td>
-                {{ book.status }} on {{ book.returndate }}
-              </td>
-              {% endif %}
+              <td>{{department.department_name}}</td>
+              <td>{{department.details}}</td>
             </tr>
           {% endfor %}
           </tbody>

@@ -1,0 +1,56 @@
+
+{% extends 'Librarian/user.html' %}
+{% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">                 
+                                <h4 class="title">Booking History</h4>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>Student</th>
+                                        <th>Deparment</th>
+                                    	<th>Book</th>
+                                    	<th>Date</th>
+                                        <th>Due Date</th>
+                                        <th>Return Date</th>
+                                    </thead>
+                                    <tbody>
+                                        {% for booking in bookings %}
+                                        <tr>
+                                        	<td>{{ booking.username }}</td>
+                                            <td>{{ booking.username.department_id.department_name }}</td>
+                                        	<td>{{ booking.bookname }}</td>
+                                        	<td>{{ booking.issuedate }}</td>
+                                            <td>{{ booking.due_date }}</td>
+                                            <td>
+                                                {% if booking.status == "returned" %}
+                                                    {{ booking.returndate }}
+                                                {% elif booking.due_date < current_date %}
+                                                    Passed duedate 
+                                                {% else %}
+                                                    --
+                                                {% endif %}
+                                            </td>
+                                         
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

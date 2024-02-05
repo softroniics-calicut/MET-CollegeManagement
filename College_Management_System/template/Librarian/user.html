@@ -36,14 +36,14 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="black" data-image="assets/img/sidebar-5.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href="" class="simple-text">
                     Librarian
                 </a>
             </div>
@@ -51,25 +51,25 @@
             <ul class="nav">
                 <li class="active">
                     <a href="{% url 'librarian_home' %}">
-                        <i class="fas fa-user"></i>
+                        <!-- <i class="fas fa-user"></i> -->
                         <p>Profile</p>
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'add_book' %}">
-                        <i class="pe-7s-note2"></i>
+                        <!-- <i class="pe-7s-note2"></i> -->
                         <p>Add Book</p>
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'view_books' %}">
-                        <i class="pe-7s-note2"></i>
+                        <!-- <i class="pe-7s-note2"></i> -->
                         <p>Books</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'view_books' %}">
-                        <i class="pe-7s-note2"></i>
+                    <a href="{% url 'librarian_history' %}">
+                        <!-- <i class="pe-7s-note2"></i> -->
                         <p>History</p>
                     </a>
                 </li>
@@ -82,15 +82,7 @@
     <div class="main-panel">
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">User</a>
-                </div>
+
                 <div class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
@@ -239,32 +231,8 @@
 
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> 
                 </p>
             </div>
         </footer>

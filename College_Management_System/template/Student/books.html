@@ -39,42 +39,53 @@
     </div>
 
 
-
+    <div class="service-single-page editContent" style="float: right;">
+      <form action="{% url 'std_booksearch' %}" method="get">
+        {% csrf_token %}
+            <div class="input-group" style="width: 300px; 
+            margin-top: 15px;">
+              <input type="search" name="search" class="form-control rounded" placeholder="Search Book" aria-label="Search" aria-describedby="search-addon" 
+              quired />
+              <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-init>search</button>
+          </div>
+        </form>
+    </div> 
     <div class="products">
       <div class="container">
+       
         <div class="row">
+          
           <div class="col-md-12">
             <div class="filters">
               <ul>
-                  <li class="active" data-filter="*">All Books</li>
-                  <li data-filter=".Hor,.hor">Horror</li>
+                  <a href="{% url 'student_books' %}"><li class="active" >All Books</li></a>
                   <li data-filter=".Fic,.fic">Fiction</li>
                   <li data-filter=".Rom,.rom">Romance</li>
-                  <li data-filter=".Ani,.ani">Animation</li>
+                  <li data-filter=".Edu,.edu">Education</li>
                   <li data-filter=".act,.Act">Action</li>
-                  <li data-filter=".Adv,.adv">Adventure</li>
-                  <li data-filter=".Com,.com">Comedy</li>
+                  <li data-filter=".Aut,.aut">autobiography</li>
+                  <li data-filter=".Per,.per">personal development</li>
               </ul>
             </div>
           </div>
-<div class="col-md-12">
-<div class="filters-content">
-    <div class="row grid">
 
-            {% for i in books %}
-                <div class="col-lg-4 col-md-4 all {{i.genre|slice:'0:3'}}">
-                <div class="product-item">
-                <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
-                <div class="down-content">
-                <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
-                <h4>Genre: {{i.genre}}</h4>
-                </div>
-                </div>
-                </div>
-            {% endfor %}
-    </div>
-</div>
-</div>
+          <div class="col-md-12">
+          <div class="filters-content">
+              <div class="row grid">
+                  {% for book in books %}
+                      <div class="col-lg-4 col-md-4 all {{book.genre|slice:'0:3'}}">
+                      <div class="product-item">
+                      <a href="{% url 'view_book' id=book.id %}"><img src="{{book.image.url}}" alt=""></a>
+                      <div class="down-content">
+                      <a href="product1/{{i.id}}"><h4>{{book.bookname}} by {{book.author}}</h4></a>
+                      <h4>Genre: {{book.genre}}</h4>
+                      </div>
+                      </div>
+                      </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
