@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -95,6 +96,21 @@ def Logout(request):
 def teacher_home(request):
     return render(request, 'Teacher/user.html')
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url=Login)   
+def edit_teacherprofile(request):
+    user = CustomUser.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.address = request.POST['address']
+        user.phone_number = request.POST['phone_number']
+        user.email = request.POST['email']
+        user.username = request.POST['username']
+        if 'image' in request.FILES:
+            user.pic = request.FILES.get('image')
+        user.save()
+        return redirect(teacher_home)
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url=Login)   
@@ -132,7 +148,8 @@ def student_records(request,id):
     }
     return render(request,'Teacher/studentbookings.html', context)
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url=Login)  
 def view_departments(request):
     departments = Department.objects.all()
     context = {
@@ -140,6 +157,9 @@ def view_departments(request):
     }
     return render(request, 'Teacher/departments.html', context)
 
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url=Login)  
 def view_teachers(request,id):
     department = Department.objects.get(id=id)
     teachers = CustomUser.objects.filter(department_id=department, user_type='Teacher')
@@ -303,7 +323,19 @@ def librarian_home(request):
 @login_required(login_url=Login)   
 def view_books(request):
     books = Book.objects.all()
-    return render(request, 'Librarian/books.html',{'books':books})
+    items_per_page = 10
+    # Use Paginator to paginate the products
+    paginator = Paginator(books, items_per_page)
+    page = request.GET.get('page', 1)
+    try:
+        bookdata = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page
+        bookdata = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver the last page of results
+        bookdata = paginator.page(paginator.num_pages)
+    return render(request, 'Librarian/books.html',{'books':bookdata})
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -389,9 +421,20 @@ def librarian_history(request):
     user = CustomUser.objects.get(id=request.user.id)
     bookings = Booking.objects.all().order_by('returndate')
     current_date = timezone.now().date()
-    print(current_date)
+    items_per_page = 10
+    # Use Paginator to paginate the products
+    paginator = Paginator(bookings, items_per_page)
+    page = request.GET.get('page', 1)
+    try:
+        bookdata = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page
+        bookdata = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver the last page of results
+        bookdata = paginator.page(paginator.num_pages)
     context = {
-        'bookings':bookings,
+        'bookings':bookdata,
         'current_date':current_date
     }
     return render(request, 'Librarian/history.html', context)

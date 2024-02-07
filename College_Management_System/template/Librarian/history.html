@@ -1,56 +1,69 @@
-
 {% extends 'Librarian/user.html' %}
 {% block content %}
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">                 
-                                <h4 class="title">Booking History</h4>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>Student</th>
-                                        <th>Deparment</th>
-                                    	<th>Book</th>
-                                    	<th>Date</th>
-                                        <th>Due Date</th>
-                                        <th>Return Date</th>
-                                    </thead>
-                                    <tbody>
-                                        {% for booking in bookings %}
-                                        <tr>
-                                        	<td>{{ booking.username }}</td>
-                                            <td>{{ booking.username.department_id.department_name }}</td>
-                                        	<td>{{ booking.bookname }}</td>
-                                        	<td>{{ booking.issuedate }}</td>
-                                            <td>{{ booking.due_date }}</td>
-                                            <td>
-                                                {% if booking.status == "returned" %}
-                                                    {{ booking.returndate }}
-                                                {% elif booking.due_date < current_date %}
-                                                    Passed duedate 
-                                                {% else %}
-                                                    --
-                                                {% endif %}
-                                            </td>
-                                         
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Booking History</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>Student</th>
+                                <th>Deparment</th>
+                                <th>Book</th>
+                                <th>Date</th>
+                                <th>Due Date</th>
+                                <th>Return Date</th>
+                            </thead>
+                            <tbody>
+                                {% for booking in bookings %}
+                                <tr>
+                                    <td>{{ booking.username }}</td>
+                                    <td>{{ booking.username.department_id.department_name }}</td>
+                                    <td>{{ booking.bookname }}</td>
+                                    <td>{{ booking.issuedate }}</td>
+                                    <td>{{ booking.due_date }}</td>
+                                    <td>
+                                        {% if booking.status == "returned" %}
+                                        {{ booking.returndate }}
+                                        {% elif booking.due_date < current_date %} Passed duedate {% else %} -- {% endif%} </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- Pagination links -->
+                        <div class="pagination mt-3 d-flex justify-content-end pe-5 mb-4  fw-bold text-white text-end ">
+                            <span class="step-links  ">
+                                {% if bookings.has_previous %}
+                                <a class="btn btn-dark" href="?page=1">&laquo; first</a>
+                                <a class="btn btn-dark" href="?page={{ bookings.previous_page_number }}">previous</a>
+                                {% endif %}
+                                {% if bookings.has_next %}
 
-                            </div>
+                                <!-- <a href="?page={{ bookings.paginator.num_pages }}" class="text-decoration-none text-white btn btn-dark ">last &raquo;</a> -->
+                                {% endif %}
+                                <span class="current text-dark">
+                                    Page {{ bookings.number }} of {{ bookings.paginator.num_pages }}.
+                                </span>
+
+                                {% if bookings.has_next %}
+
+                                <a href="?page={{ bookings.next_page_number }}"
+                                    class="text-decoration-none text-white btn btn-dark ">next</a>
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-{% endblock %}
+</div>
+</div>
 
+{% endblock %}

@@ -73,15 +73,13 @@
                         <p>Departments</p>
                     </a>
                 </li>
-  
 
 
-                <!-- <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
+                <li>
+                    <a href="{% url 'Logout' %}">                   
+                        <p>Logout</p>
                     </a>
-                </li> -->
+                </li>
 
             </ul>
     	</div>
@@ -95,12 +93,12 @@
                     
 
                     <ul class="nav navbar-nav navbar-right">
-                       
+<!--                        
                         <li>
                             <a href="{% url 'Logout' %}">
                                 <p>Log out</p>
                             </a>
-                        </li>
+                        </li> -->
 						<li class="separator hidden-lg hidden-md"></li>
                     </ul>
                 </div>
@@ -117,7 +115,7 @@
                         <h4 class="title">Edit Profile</h4>
                     </div>
                     <div class="content">
-                        <form action="{% url 'edit_libprofile' %}" method="post" enctype="multipart/form-data">
+                        <form action="{% url 'edit_teacherprofile' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
                                 
@@ -208,12 +206,7 @@
                         </p>
                     </div>
                     <hr>
-                    <div class="text-center">
-                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
-
-                    </div>
+                    
                 </div>
             </div>
 

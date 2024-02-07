@@ -226,9 +226,10 @@ input[type="text"], input[type="password"], input[type="file"] {
     color: #FFF;
 }
 
-.send-button {
+ .send-button {
     margin-bottom: 20px;
-}
+
+} 
 
 .send-button input[type="submit"] {
     width: 60%;
@@ -247,7 +248,8 @@ input[type="text"], input[type="password"], input[type="file"] {
     -o-transition:0.5s all;
     -ms-transition:0.5s all;
     text-decoration: none;
-}
+    
+} 
 
 /*--w3layouts--*/
 /*--agileits--*/

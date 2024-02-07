@@ -11,7 +11,7 @@
                                 <form action="{% url 'search_student' %}" method="get">
                                     {% csrf_token %}
                                         <div class="input-group" style="margin-left: 65%; margin-top: 15px; display: flex;">
-                                          <input type="search" name="search" class="form-control rounded" placeholder="Search by Destination" aria-label="Search" aria-describedby="search-addon" 
+                                          <input type="search" name="search" class="form-control rounded" placeholder="Search student" aria-label="Search" aria-describedby="search-addon" 
                                           quired />
                                           <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
                                       </div>
@@ -58,31 +58,10 @@
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
+                    
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                   
                 </p>
             </div>
         </footer>

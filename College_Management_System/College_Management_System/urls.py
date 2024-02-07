@@ -30,6 +30,7 @@ urlpatterns = [
 
 
     path('teacher_home', views.teacher_home, name="teacher_home"),
+    path('edit_teacherprofile', views.edit_teacherprofile, name="edit_teacherprofile"),
     path('view_students', views.view_students, name="view_students"),
     path('search_student', views.search_student, name="search_student"),
     path('student_records/<int:id>', views.student_records, name="student_records"),
