@@ -39,6 +39,7 @@ class Book(models.Model):
 class Booking(models.Model):
     username=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     bookname=models.ForeignKey(Book,on_delete=models.CASCADE)
+    
     issuedate=models.DateField(default=timezone.now,blank=False)
     due_date = models.DateField()
     returndate = models.DateField(null=True, blank=True)
